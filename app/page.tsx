@@ -28,7 +28,11 @@ const SEO = () => {
   return null;
 };
 
-const BootLoader = ({ onComplete }) => {
+interface BootLoaderProps {
+  onComplete: () => void;
+}
+
+const BootLoader = ({ onComplete }: BootLoaderProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
