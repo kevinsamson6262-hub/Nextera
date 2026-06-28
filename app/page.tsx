@@ -1,33 +1,69 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence, useSpring, useInView } from 'framer-motion';
-import { 
-  Globe, Smartphone, Cpu, Cloud, Database, BarChart, 
-  ChevronRight, CheckCircle2, Menu, X, ArrowRight, 
-  Mail, Phone, MapPin, Zap, Shield, Code, Layers, 
-  MessageSquare, Terminal, Activity, Monitor, Server, 
-  Workflow, Lock, ExternalLink, Sparkles
-} from 'lucide-react';
+
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  type ReactNode,
+} from "react";
+
 import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+  useSpring,
+  useInView,
+  type HTMLMotionProps,
+} from "framer-motion";
+
+import {
+  Globe,
+  Smartphone,
+  Cpu,
+  Cloud,
+  Database,
+  BarChart,
+  ChevronRight,
+  CheckCircle2,
+  Menu,
+  X,
+  ArrowRight,
+  Mail,
+  Phone,
+  MapPin,
+  Zap,
+  Shield,
+  Code,
+  Layers,
+  MessageSquare,
+  Terminal,
+  Activity,
+  Monitor,
+  Server,
+  Workflow,
+  Lock,
+  ExternalLink,
+  Sparkles,
   Linkedin,
   Instagram,
   Facebook,
   MessageCircle,
 } from "lucide-react";
-import { db } from "./firebase";
 
+import { db } from "./firebase";
 import {
   collection,
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
+
 const SEO = () => {
   useEffect(() => {
     document.title = "Nextera Digital Solutions | Enterprise Tech & AI Consulting";
   }, []);
   return null;
 };
-
 interface BootLoaderProps {
   onComplete: () => void;
 }
@@ -87,22 +123,35 @@ const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    const updateMousePosition = (e) => setMousePosition({ x: e.clientX, y: e.clientY });
-    const handleMouseOver = (e) => {
-      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.interactive')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
-    };
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mouseover', handleMouseOver);
-    return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      window.removeEventListener('mouseover', handleMouseOver);
-    };
-  }, []);
+  const updateMousePosition = (e: MouseEvent) => {
+    setMousePosition({
+      x: e.clientX,
+      y: e.clientY,
+    });
+  };
 
+  const handleMouseOver = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+
+    if (
+      target.closest("button") ||
+      target.closest("a") ||
+      target.closest(".interactive")
+    ) {
+      setIsHovering(true);
+    } else {
+      setIsHovering(false);
+    }
+  };
+
+  window.addEventListener("mousemove", updateMousePosition);
+  window.addEventListener("mouseover", handleMouseOver);
+
+  return () => {
+    window.removeEventListener("mousemove", updateMousePosition);
+    window.removeEventListener("mouseover", handleMouseOver);
+  };
+}, []);
   return (
     <>
       <motion.div
@@ -119,13 +168,27 @@ const CustomCursor = () => {
   );
 };
 
-const MagneticButton = ({ children, className = '', variant = 'primary', ...props }) => {
-  const ref = useRef(null);
+interface MagneticButtonProps extends HTMLMotionProps<"button"> {
+  children: ReactNode;
+  className?: string;
+  variant?: "primary" | "secondary" | "outline";
+}
+
+const MagneticButton = ({
+  children,
+  className = "",
+  variant = "primary",
+  ...props
+}: MagneticButtonProps) => {
+  const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const handleMouse = (e) => {
+  const handleMouse = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { clientX, clientY } = e;
-    const { height, width, left, top } = ref.current.getBoundingClientRect();
+    if (!ref.current) return;
+
+const { height, width, left, top } =
+  ref.current.getBoundingClientRect();
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
     setPosition({ x: middleX * 0.2, y: middleY * 0.2 });
@@ -161,7 +224,7 @@ const SpotlightBackground = () => {
   const [mousePos, setMousePos] = useState({ x: '50%', y: '50%' });
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: `${e.clientX}px`, y: `${e.clientY}px` });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -183,7 +246,19 @@ const SpotlightBackground = () => {
   );
 };
 
-const SectionHeader = ({ title, subtitle, align = 'center', badge }) => (
+interface SectionHeaderProps {
+  title: string;
+  subtitle: string;
+  align?: "center" | "left";
+  badge?: string;
+}
+
+const SectionHeader = ({
+  title,
+  subtitle,
+  align = "center",
+  badge,
+}: SectionHeaderProps) => (
   <div className={`mb-20 ${align === 'center' ? 'text-center flex flex-col items-center' : 'text-left'} relative z-10`}>
     {badge && (
       <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-6">
@@ -202,8 +277,12 @@ const SectionHeader = ({ title, subtitle, align = 'center', badge }) => (
   </div>
 );
 
-const AnimatedNumber = ({ value }) => {
-  const ref = useRef(null);
+interface AnimatedNumberProps {
+  value: number;
+}
+
+const AnimatedNumber = ({ value }: AnimatedNumberProps) => {
+  const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [displayValue, setDisplayValue] = useState(0);
 
@@ -719,11 +798,15 @@ const ServicesBento = () => {
   );
 };
 
-const TiltCard = ({ children }) => {
-  const ref = useRef(null);
+interface TiltCardProps {
+  children: ReactNode;
+}
+
+const TiltCard = ({ children }: TiltCardProps) => {
+  const ref = useRef<HTMLDivElement>(null);
   const [style, setStyle] = useState({ rotateX: 0, rotateY: 0 });
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const { left, top, width, height } = ref.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 20;
@@ -2024,7 +2107,9 @@ const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
   e.preventDefault();
 
   try {
@@ -2147,7 +2232,7 @@ const ContactForm = () => {
                 </div>
                 <div className="space-y-2 group">
                   <label className="text-xs text-slate-400 font-semibold uppercase tracking-wider group-focus-within:text-cyan-400 transition-colors">Project Brief</label>
-                  <textarea required rows="4" value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} className="w-full bg-transparent border-b-2 border-white/10 px-0 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors text-lg resize-none" placeholder="We need to build..."></textarea>
+                  <textarea required rows={4} value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} className="w-full bg-transparent border-b-2 border-white/10 px-0 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors text-lg resize-none" placeholder="We need to build..."></textarea>
                 </div>
                 
                 <MagneticButton variant="primary" type="submit" className="w-full !py-5 text-lg mt-4" disabled={loading}>
