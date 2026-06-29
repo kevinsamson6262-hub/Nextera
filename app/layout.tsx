@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     "Professional web development, UI/UX design, SaaS applications, SEO, and digital solutions.",
 
   icons: {
-    icon: "/logo1.png", // or "/logo.png"
-    shortcut: "/logo1.png",
+    icon: "/favicon.ico", // or "/logo.png"
+    shortcut: "/favicon.ico",
     apple: "/logo1.png",
   },
 };
