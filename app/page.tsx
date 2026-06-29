@@ -736,26 +736,34 @@ const ServicesBento = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="md:col-span-2 md:row-span-2 relative group rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-10 flex flex-col justify-end">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8 lg:p-10">
+
+            {/* Hover Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(6,182,212,0.1)_0%,transparent_70%)] translate-x-1/3 -translate-y-1/3 group-hover:scale-110 transition-transform duration-1000" />
-            
-            <div className="relative z-10 text-center sm:text-left">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-cyan-400 mb-6 sm:mb-8 shadow-2xl mx-auto sm:mx-0">
-              <Layers className="w-7 h-7 sm:w-8 sm:h-8" />
-            </div>
 
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
-              Full-Stack Web & SaaS
-            </h3>
+            {/* Glow Effect */}
+            <div className="absolute top-0 right-0 w-[350px] sm:w-[500px] lg:w-[600px] h-[350px] sm:h-[500px] lg:h-[600px] bg-[radial-gradient(circle,rgba(6,182,212,0.1)_0%,transparent_70%)] translate-x-1/3 -translate-y-1/3 group-hover:scale-110 transition-transform duration-1000 pointer-events-none" />
 
-            <p className="text-slate-400 text-base sm:text-lg max-w-full sm:max-w-md leading-relaxed mb-6 sm:mb-8 mx-auto sm:mx-0 px-2 sm:px-0">
-              End-to-end product engineering using React, Next.js, and Node.
-              Multi-tenant architectures designed to handle millions of requests
-              securely.
-            </p>
+            {/* Content */}
+            <div className="relative z-10 flex flex-col items-center sm:items-start">
 
-            <div className="inline-flex items-center text-cyan-400 font-semibold group/btn cursor-pointer">
-              {/* Button or Link */}
+              {/* Icon */}
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-cyan-400 shadow-2xl mb-6">
+                <Layers className="w-7 h-7 sm:w-8 sm:h-8" />
+              </div>
+
+              {/* Heading */}
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center sm:text-left leading-tight mb-5">
+                Full-Stack Web & SaaS
+              </h3>
+
+              {/* Description */}
+              <p className="text-slate-400 text-base sm:text-lg leading-8 text-center sm:text-left max-w-md">
+                End-to-end product engineering using React, Next.js, and Node.
+                Multi-tenant architectures designed to handle millions of requests
+                securely.
+              </p>
+
             </div>
           </div>
           </motion.div>
@@ -785,22 +793,22 @@ const ServicesBento = () => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="md:col-span-3 relative group rounded-3xl overflow-hidden bg-[#0B1020] border border-white/10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
-            <div className="relative z-10 max-w-2xl px-5 sm:px-6 md:px-0 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-2 sm:gap-3 text-violet-400 font-semibold text-xs sm:text-sm mb-3 sm:mb-4">
-                <Cloud className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span>Digital Solutions & Development</span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
-                Transforming Ideas into Digital Success
-              </h3>
-
-              <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-full md:max-w-2xl mx-auto md:mx-0">
-                We create modern websites, web applications, and digital experiences
-                that help businesses grow through innovative design, optimized
-                performance, and reliable technology.
-              </p>
+            <div className="relative z-10 w-full max-w-3xl mx-auto px-6 sm:px-8 md:px-10 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2 text-violet-400 font-semibold text-sm mb-5">
+              <Cloud className="w-5 h-5 flex-shrink-0" />
+              <span>Digital Solutions & Development</span>
             </div>
+
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.15] mb-5">
+              Transforming Ideas into Digital Success
+            </h3>
+
+            <p className="text-slate-400 text-lg sm:text-xl leading-8 max-w-xl mx-auto md:mx-0">
+              We create modern websites, web applications, and digital experiences
+              that help businesses grow through innovative design, optimized
+              performance, and reliable technology.
+            </p>
+          </div>
             <div className="relative z-10 flex-shrink-0">
               <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border border-white/10 flex items-center justify-center relative">
                 <div className="absolute inset-2 border border-dashed border-cyan-500/30 rounded-full animate-[spin_10s_linear_infinite]" />
