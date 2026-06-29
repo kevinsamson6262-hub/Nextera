@@ -734,39 +734,36 @@ const ServicesBento = () => {
           align="left"
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="md:col-span-2 md:row-span-2 relative group rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-10 flex flex-col justify-end">
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8 lg:p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 auto-rows-auto lg:auto-rows-[260px]">
+          <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="lg:col-span-2 lg:row-span-2 relative group overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 lg:p-10 flex items-center lg:items-end min-h-[420px] lg:min-h-[540px]"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-            {/* Hover Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(6,182,212,0.12)_0%,transparent_70%)] translate-x-1/3 -translate-y-1/3 group-hover:scale-110 transition-transform duration-1000" />
 
-            {/* Glow Effect */}
-            <div className="absolute top-0 right-0 w-[350px] sm:w-[500px] lg:w-[600px] h-[350px] sm:h-[500px] lg:h-[600px] bg-[radial-gradient(circle,rgba(6,182,212,0.1)_0%,transparent_70%)] translate-x-1/3 -translate-y-1/3 group-hover:scale-110 transition-transform duration-1000 pointer-events-none" />
+          <div className="relative z-10 w-full text-center lg:text-left">
 
-            {/* Content */}
-            <div className="relative z-10 flex flex-col items-center sm:items-start">
-
-              {/* Icon */}
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-cyan-400 shadow-2xl mb-6">
-                <Layers className="w-7 h-7 sm:w-8 sm:h-8" />
-              </div>
-
-              {/* Heading */}
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center sm:text-left leading-tight mb-5">
-                Full-Stack Web & SaaS
-              </h3>
-
-              {/* Description */}
-              <p className="text-slate-400 text-base sm:text-lg leading-8 text-center sm:text-left max-w-md">
-                End-to-end product engineering using React, Next.js, and Node.
-                Multi-tenant architectures designed to handle millions of requests
-                securely.
-              </p>
-
+            <div className="mx-auto lg:mx-0 mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-2xl">
+              <Layers className="h-8 w-8 text-cyan-400" />
             </div>
+
+            <h3 className="text-3xl lg:text-5xl font-bold text-white leading-tight">
+              Full-Stack Web & SaaS
+            </h3>
+
+            <p className="mt-6 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg leading-8 text-slate-400">
+              End-to-end product engineering using React, Next.js, Node.js,
+              PostgreSQL and scalable cloud infrastructure. We build secure,
+              high-performance SaaS platforms engineered to handle millions of
+              requests.
+            </p>
+
           </div>
-          </motion.div>
+        </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="relative group rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-8 flex flex-col justify-between">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -791,31 +788,36 @@ const ServicesBento = () => {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="md:col-span-3 relative group rounded-3xl overflow-hidden bg-[#0B1020] border border-white/10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="lg:col-span-3 relative group overflow-hidden rounded-3xl border border-white/10 bg-[#0B1020] p-6 sm:p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
-            <div className="relative z-10 w-full max-w-3xl mx-auto px-6 sm:px-8 md:px-10 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 text-violet-400 font-semibold text-sm mb-5">
-              <Cloud className="w-5 h-5 flex-shrink-0" />
-              <span>Digital Solutions & Development</span>
-            </div>
-
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.15] mb-5">
-              Transforming Ideas into Digital Success
-            </h3>
-
-            <p className="text-slate-400 text-lg sm:text-xl leading-8 max-w-xl mx-auto md:mx-0">
-              We create modern websites, web applications, and digital experiences
-              that help businesses grow through innovative design, optimized
-              performance, and reliable technology.
-            </p>
-          </div>
-            <div className="relative z-10 flex-shrink-0">
-              <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border border-white/10 flex items-center justify-center relative">
-                <div className="absolute inset-2 border border-dashed border-cyan-500/30 rounded-full animate-[spin_10s_linear_infinite]" />
-                <div className="absolute inset-6 border border-violet-500/30 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-                <Server className="w-10 h-10 text-white" />
+            <div className="relative z-10 flex-1 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start gap-3 text-violet-400 font-semibold mb-5">
+                <Cloud className="w-5 h-5" />
+                <span>Digital Solutions & Development</span>
               </div>
+
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Transforming Ideas into Digital Success
+              </h3>
+
+              <p className="mt-6 text-slate-400 text-base sm:text-lg leading-8 max-w-2xl mx-auto lg:mx-0">
+                We create modern websites, scalable web applications and powerful
+                digital experiences that help businesses grow through exceptional
+                design, lightning-fast performance and reliable technology.
+              </p>
+
             </div>
+            <div className="relative z-10 flex justify-center lg:justify-end w-full lg:w-auto">
+            <div className="w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 rounded-full border border-white/10 flex items-center justify-center relative">
+
+              <div className="absolute inset-3 rounded-full border border-dashed border-cyan-500/30 animate-[spin_10s_linear_infinite]" />
+
+              <div className="absolute inset-8 rounded-full border border-violet-500/30 animate-[spin_15s_linear_infinite_reverse]" />
+
+              <Server className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+
+            </div>
+          </div>
           </motion.div>
         </div>
       </div>
