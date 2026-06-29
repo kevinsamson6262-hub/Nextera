@@ -788,47 +788,34 @@ const ServicesBento = () => {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="lg:col-span-3 relative group overflow-hidden rounded-3xl border border-white/10 bg-[#0B1020] px-6 py-8 sm:px-8 sm:py-10 lg:px-14 lg:py-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="lg:col-span-3 relative group overflow-hidden rounded-3xl border border-white/10 bg-[#0B1020] p-6 sm:p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
-
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
-
-              {/* Left Side */}
-              <div className="w-full lg:w-[65%] text-center lg:text-left">
-
-                <div className="flex items-center justify-center lg:justify-start gap-3 text-violet-400 font-semibold text-sm mb-6">
-                  <Cloud className="w-5 h-5" />
-                  <span>Digital Solutions & Development</span>
-                </div>
-
-                <h3 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-[1.1] max-w-4xl">
-                  Transforming Ideas into Digital Success
-                </h3>
-
-                <p className="mt-6 text-slate-400 text-base lg:text-xl leading-9 max-w-3xl">
-                  We create modern websites, scalable web applications, SaaS platforms,
-                  and digital experiences that help businesses grow through innovative
-                  design, optimized performance, and reliable technology.
-                </p>
-
+            <div className="relative z-10 flex-1 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start gap-3 text-violet-400 font-semibold mb-5">
+                <Cloud className="w-5 h-5" />
+                <span>Digital Solutions & Development</span>
               </div>
 
-              {/* Right Side */}
-              <div className="flex justify-center lg:justify-end w-full lg:w-[35%]">
+              <h3 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white leading-tight">
+                Transforming Ideas into Digital Success
+              </h3>
 
-                <div className="relative flex items-center justify-center w-40 h-40 lg:w-64 lg:h-64 rounded-full border border-white/10">
-
-                  <div className="absolute inset-4 rounded-full border border-dashed border-cyan-500/30 animate-[spin_10s_linear_infinite]" />
-
-                  <div className="absolute inset-10 rounded-full border border-violet-500/30 animate-[spin_15s_linear_infinite_reverse]" />
-
-                  <Server className="w-12 h-12 lg:w-16 lg:h-16 text-white" />
-
-                </div>
-
-              </div>
+              <p className="mt-6 text-slate-400 text-base sm:text-lg leading-8 max-w-2xl mx-auto lg:mx-0">
+                We create modern websites, scalable web applications and powerful digital experiences that help businesses grow through exceptionaldesign, lightning-fast performance and reliable technology.
+              </p>
 
             </div>
+            <div className="relative z-10 flex justify-center lg:justify-end w-full lg:w-auto">
+            <div className="w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 rounded-full border border-white/10 flex items-center justify-center relative">
+
+              <div className="absolute inset-3 rounded-full border border-dashed border-cyan-500/30 animate-[spin_10s_linear_infinite]" />
+
+              <div className="absolute inset-8 rounded-full border border-violet-500/30 animate-[spin_15s_linear_infinite_reverse]" />
+
+              <Server className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+
+            </div>
+          </div>
           </motion.div>
         </div>
       </div>
